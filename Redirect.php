@@ -1,5 +1,5 @@
 <?php
-namespace thom855j\http;
+namespace thom855j\PHPHttp;
 
 class Redirect
 {
