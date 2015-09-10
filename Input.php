@@ -1,6 +1,6 @@
 <?php
 
-namespace thom855j\PHPHttp;
+namespace thom855j\php_http;
 
 class Input
 {
