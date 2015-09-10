@@ -1,0 +1,8 @@
+{
+        "name": "thom855j/php-http",
+        "license": "MIT",
+        "description": "Classes for manipulating routes and inputs like $_GET and $_POST",
+        "require": {
+        "php": ">=5.4.0"
+        }
+}
