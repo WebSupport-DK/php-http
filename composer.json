@@ -1,5 +1,6 @@
 {
         "name": "thom855j/php-http",
+        "version": "dev-master",
         "license": "MIT",
         "description": "Classes for manipulating routes and inputs like $_GET and $_POST",
         "require": {
