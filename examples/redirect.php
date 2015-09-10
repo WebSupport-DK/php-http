@@ -1,7 +1,7 @@
 <?php
 
 // load class
-require_once '../Redirect.php';
+require_once '../src/Redirect.php';
 
 // use class
 use thom855j\PHPHttp\Redirect;

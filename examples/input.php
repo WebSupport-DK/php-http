@@ -1,7 +1,7 @@
 <?php
 
 // load class
-require_once '../Input.php';
+require_once '../src/Input.php';
 
 //use class
 use thom855j\PHPHttp\Input;

@@ -1,7 +1,7 @@
 <?php
 
 // load
-require_once '../Router.php';
+require_once '../src/Router.php';
 
 // use class
 use thom855j\PHPHttp\Router;
