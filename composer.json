@@ -4,5 +4,10 @@
         "description": "Classes for manipulating routes and inputs like $_GET and $_POST",
         "require": {
         "php": ">=5.4.0"
+        },
+    "autoload": {
+        "psr-4": {
+            "thom855j\\PHPHttp\\": "src/"
+            }
         }
 }
