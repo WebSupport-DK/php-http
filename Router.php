@@ -8,7 +8,7 @@
  * protected $variable = Only accessible inside this class and childs! 
  */
 
-namespace thom855j\php_http;
+namespace thom855j\PHPHttp;
 
 class Router
 {
