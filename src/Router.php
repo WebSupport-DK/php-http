@@ -126,9 +126,13 @@ class Router
         {
             return explode('/', filter_var(rtrim($_GET[$name], '/'), FILTER_SANITIZE_URL));
         }
-        else
+        elseif(isset($_GET[$name]) && $array === false)
         {
             return filter_var(rtrim($_GET[$name], '/'), FILTER_SANITIZE_URL);
+        }
+        else
+        {
+            return false;
         }
     }
 
