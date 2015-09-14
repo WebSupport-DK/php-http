@@ -87,7 +87,7 @@ class Router
             {
 
                 // if exists, use this as the method instead of default 
-                $this->method = $url[1];
+                $this->action = $url[1];
 
                 /*
                  * destroys the second URL, to leave only the parameters 
