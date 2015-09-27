@@ -49,8 +49,7 @@ class Input
         {
             $string = str_replace((array) $replace, ' ', $string);
         }
-        $slug = preg_replace('/[^A-Za-z0-9-]+/', $delimiter, $string);
-        return $slug;
+        return preg_replace('/[^A-Za-z0-9-]+/', $delimiter, $string);
     }
 
     public static
