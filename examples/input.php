@@ -4,7 +4,7 @@
 require_once '../src/Input.php';
 
 //use class
-use thom855j\PHPHttp\Input;
+use WebSupportDK\PHPHttp\Input;
 
 // get input from posts,get or files. Item is the name form the form or url query string.
 //  If it has more than one array, you can use $info to get that
