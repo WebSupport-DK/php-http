@@ -1,5 +1,5 @@
 {
-        "name": "thom855j/php-http",
+        "name": "websupport-dk/php-http",
         "version": "dev-master",
         "license": "MIT",
         "description": "Classes for manipulating routes and inputs like $_GET and $_POST",
@@ -8,7 +8,7 @@
         },
     "autoload": {
         "psr-4": {
-            "thom855j\\PHPHttp\\": "src/"
+            "WebSupportDK\\PHPHttp\\": "src/"
             }
         }
 }
