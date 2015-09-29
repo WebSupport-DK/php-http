@@ -27,9 +27,9 @@ class Url
 		exit;
 	}
 
-	public static function getRoot($path = '')
+	public static function getRoot($exclude_path = '')
 	{
-		return self::getTransferProtocol() . self::getHost() . str_replace($path, '', dirname($_SERVER['SCRIPT_NAME']));
+		return self::getTransferProtocol() . self::getHost() . str_replace($exclude_path, '', dirname($_SERVER['SCRIPT_NAME']));
 	}
 
 	public static function get()
@@ -41,8 +41,13 @@ class Url
 	{
 		return http_response_code();
 	}
+	
+	public static function setError($code)
+	{
+		return http_response_code($code);
+	}
 
-	public static function setError($error, $phrase)
+	public static function setHeader($error, $phrase)
 	{
 		return header(self::getServerProtocol() . " $error $phrase");
 	}
