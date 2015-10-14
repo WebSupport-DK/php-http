@@ -26,6 +26,10 @@ class Url
 		header('Location: javascript://history.go(-1)');
 		exit;
 	}
+	
+	public function getPrevious(){
+		return $_SERVER['HTTP_REFERER'];
+	}
 
 	public static function getRoot($exclude_path = '')
 	{
