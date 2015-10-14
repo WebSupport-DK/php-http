@@ -27,7 +27,7 @@ class Url
 		exit;
 	}
 	
-	public function getPrevious(){
+	public static function getPrevious(){
 		return $_SERVER['HTTP_REFERER'];
 	}
 
