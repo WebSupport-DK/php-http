@@ -1,4 +1,6 @@
-<?php namespace WebSupportDK\PHPHttp;
+<?php 
+
+namespace Datalaere\PHPHttp;
 
 class Url
 {
@@ -9,6 +11,7 @@ class Url
 			if (!headers_sent()) {
 				header('Location: ' . $location);
 				exit;
+
 			} else {
 				echo '<script type="text/javascript">';
 				echo 'window.location.href="' . $location . '";';
@@ -17,6 +20,7 @@ class Url
 				echo '<meta http-equiv="refresh" content="0;url=' . $location . '" />';
 				echo '</noscript>';
 				exit;
+
 			}
 		}
 	}
@@ -27,13 +31,15 @@ class Url
 		exit;
 	}
 	
-	public static function getPrevious(){
+	public static function getPrevious()
+	{
 		return $_SERVER['HTTP_REFERER'];
 	}
 
 	public static function getRoot($exclude_path = '')
 	{
-		return self::getTransferProtocol() . self::getHost() . str_replace($exclude_path, '', dirname($_SERVER['SCRIPT_NAME']));
+		return self::getTransferProtocol() . self::getHost() 
+		. str_replace($exclude_path, '', dirname($_SERVER['SCRIPT_NAME']));
 	}
 
 	public static function get()
@@ -76,11 +82,13 @@ class Url
 		$isSecure = false;
 		if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
 			$isSecure = true;
+
 		} elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] ==
 			'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] ==
 			'on') {
 			$isSecure = true;
 		}
+		
 		return $isSecure ? 'https://' : 'http://';
 	}
 }

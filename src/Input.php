@@ -1,83 +1,74 @@
 <?php
 
-namespace WebSupportDK\PHPHttp;
+namespace Datalaere\PHPHttp;
 
 class Input
 {
 
-    public static
-            function escape($string)
+    public static function escape($string)
     {
         return trim(filter_var($string, FILTER_SANITIZE_STRING));
     }
 
-    public static
-            function strip($string, $tags = '')
+    public static function strip($string, $tags = '')
     {
         return strip_tags($string, $tags);
     }
 
-    public static
-            function serialize($input)
+    public static function serialize($input)
     {
         return serialize($input);
     }
 
-    public static
-            function unserialize($input)
+    public static function unserialize($input)
     {
         return userialize($input);
     }
 
-    public static
-            function jsonEncode($input)
+    public static function jsonEncode($input)
     {
         return json_encode($input);
     }
 
-    public static
-            function jsonDecode($json)
+    public static function jsonDecode($json)
     {
         return json_decode($json);
     }
 
     // This function expects the input to be UTF-8 encoded.
-    public static
-            function toSlug($string, $replace = array(), $delimiter = '-')
+    public static function toSlug($string, $replace = array(), $delimiter = '-')
     {
-        if (!empty($replace))
-        {
+        if (!empty($replace)) {
             $string = str_replace((array) $replace, ' ', $string);
         }
+
         return preg_replace('/[^A-Za-z0-9-]+/', $delimiter, $string);
     }
 
-    public static
-            function exists($type = 'post', $data = null)
+    public static function exists($type = 'post', $data = null)
     {
-        switch ($type)
-        {
+        switch ($type) {
             case 'post':
-                if (is_null($data))
-                {
+                if (is_null($data)) {
                     return (!empty($_POST)) ? true : false;
                 }
+
                 return $data;
                 break;
 
             case 'get':
-                if (is_null($data))
-                {
+                if (is_null($data)) {
                     return (!empty($_GET)) ? true : false;
                 }
+
                 return $data;
                 break;
 
             case 'files':
-                if (is_null($data))
-                {
+                if (is_null($data)) {
                     return (!empty($_FILES)) ? true : false;
                 }
+
                 return $data;
                 break;
 
@@ -87,21 +78,20 @@ class Input
         }
     }
 
-    public static
-            function get($item, $info = null)
+    public static function get($item, $info = null)
     {
-        if (isset($_POST[$item]))
-        {
+        if (isset($_POST[$item]))  {
             return trim(filter_var($_POST[$item], FILTER_SANITIZE_STRING));
-        }
-        elseif (isset($_GET[$item]))
-        {
+
+        } elseif (isset($_GET[$item])) {
+
             return trim(filter_var($_GET[$item], FILTER_SANITIZE_STRING));
-        }
-        elseif (isset($_FILES[$item][$info]))
-        {
+
+        } elseif (isset($_FILES[$item][$info])) {
+
             return $_FILES[$item][$info];
         }
+        
         return null;
     }
 
