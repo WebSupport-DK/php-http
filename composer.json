@@ -1,8 +1,10 @@
 {
     "name": "datalaere/php-http",
     "version": "dev-master",
-    "license": "MIT",
+    "type": "library",
     "description": "Classes for manipulating routes and inputs like $_GET and $_POST",
+    "homepage": "https://github.com/datalaere/php-http",
+    "license": "MIT",
     "require": {
         "php": ">=5.5.0"
     },
