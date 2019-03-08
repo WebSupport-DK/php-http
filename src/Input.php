@@ -4,7 +4,6 @@ namespace Datalaere\PHPHttp;
 
 class Input
 {
-
     public static function escape($string)
     {
         return trim(filter_var($string, FILTER_SANITIZE_STRING));
@@ -80,19 +79,14 @@ class Input
 
     public static function get($item, $info = null)
     {
-        if (isset($_POST[$item]))  {
+        if (isset($_POST[$item])) {
             return trim(filter_var($_POST[$item], FILTER_SANITIZE_STRING));
-
         } elseif (isset($_GET[$item])) {
-
             return trim(filter_var($_GET[$item], FILTER_SANITIZE_STRING));
-
         } elseif (isset($_FILES[$item][$info])) {
-
             return $_FILES[$item][$info];
         }
         
         return null;
     }
-
 }

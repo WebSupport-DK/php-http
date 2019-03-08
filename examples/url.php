@@ -4,7 +4,7 @@
 require_once '../src/Url.php';
 
 // use class
-use WebSupportDK\PHPHttp\Url;
+use Datalaere\PHPHttp\Url;
 
 // redirect with header location to url
 Url::redirect($location='http://test.com/home');
