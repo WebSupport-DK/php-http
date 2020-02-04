@@ -1,33 +1,9 @@
 <?php
 
-namespace Datalaere\PHPHttp;
+namespace PHP\Http;
 
 class Url
 {
-    public static function redirect($location = null)
-    {
-        if ($location) {
-            if (!headers_sent()) {
-                header('Location: ' . $location);
-                exit;
-            } else {
-                echo '<script type="text/javascript">';
-                echo 'window.location.href="' . $location . '";';
-                echo '</script>';
-                echo '<noscript>';
-                echo '<meta http-equiv="refresh" content="0;url=' . $location . '" />';
-                echo '</noscript>';
-                exit;
-            }
-        }
-    }
-
-    public static function redirectBack()
-    {
-        header('Location: javascript://history.go(-1)');
-        exit;
-    }
-    
     public static function getPrevious()
     {
         return $_SERVER['HTTP_REFERER'];
@@ -42,16 +18,6 @@ class Url
     public static function get()
     {
         return self::getTransferProtocol() . self::getHost() . self::getUri();
-    }
-
-    public static function getError()
-    {
-        return http_response_code();
-    }
-    
-    public static function setError($code)
-    {
-        return http_response_code($code);
     }
 
     public static function setHeader($error, $phrase)
