@@ -100,8 +100,8 @@ class Router
         }
 
         // checks if a controller by the name from the URL exists
-        if (strreplace('', '', $this->uri[0]) &&
-            fileexists($this->path . ucfirst($this->controller) . 'Controller.php')) {
+        if (str_replace('', '', $this->uri[0]) &&
+            file_exists($this->path . ucfirst($this->controller) . 'Controller.php')) {
 
             // if exists, use this as the controller instead of default
             $this->controller = ucfirst($this->controller) . 'Controller';
@@ -124,7 +124,7 @@ class Router
         if (!empty($this->uri)) {
 
             // then check if an according method exists in the controller from $url[0]
-            if (methodexists($this->controller, $this->uri[1])) {
+            if (method_exists($this->controller, $this->uri[1])) {
 
                 // if exists, use this as the method instead of default
                 $this->action = $this->uri[1];
@@ -144,14 +144,14 @@ class Router
          * index.php?url=[parameters in array seperated by "/"].
          * If it has, get all the values. Else, just parse is as an empty array.
          */
-        $this->params = $this->uri ? arrayvalues($this->uri) : array();
+        $this->params = $this->uri ? array_values($this->uri) : array();
 
         /**
          * 1. call/execute the controller and it's method.
          * 2. If the Router has NOT changed them, use the default controller and method.
          * 2. if there are any params, return these too. Else just return an empty array.
          */
-        calluserfuncarray(array($this->controller, $this->action), $this->params);
+        call_user_func_array(array($this->controller, $this->action), $this->params);
     }
 
     /**
@@ -161,8 +161,8 @@ class Router
      */
     private function parseUrl($name)
     {
-        if (isset($GET[$name])) {
-            return explode('/', filtervar(rtrim($GET[$name], '/'), FILTERSANITIZEURL));
+        if (isset($_GET[$name])) {
+            return explode('/', filter_var(rtrim($GET[$name], '/'), FILTER_SANITIZE_URL));
         }
 
         return false;
