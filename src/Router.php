@@ -162,7 +162,7 @@ class Router
     private function parseUrl($name)
     {
         if (isset($_GET[$name])) {
-            return explode('/', filter_var(rtrim($GET[$name], '/'), FILTER_SANITIZE_URL));
+            return explode('/', filter_var(rtrim($_GET[$name], '/'), FILTER_SANITIZE_URL));
         }
 
         return false;
